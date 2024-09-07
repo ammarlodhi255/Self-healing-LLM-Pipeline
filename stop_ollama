@@ -1,0 +1,3 @@
+pgrep ollama
+74877
+kill 74877
