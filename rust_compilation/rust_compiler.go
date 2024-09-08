@@ -10,25 +10,42 @@ import (
 func main() {
 	// Rust code to compile
 	rustCode := `
-	fn main() {
-		println!(a"Hello from Rust!");
+fn main() {
+    println!("Hello world");
+}
+`
+
+	// Create a Cargo project directory
+	projectDir := "rust_project"
+	os.Mkdir(projectDir, 0755)
+
+	// Create the Cargo.toml file with necessary dependencies
+	cargoToml := `
+	[package]
+	name = "rust_project"
+	version = "0.1.0"
+	edition = "2021"
+
+	[dependencies]
+	rand = "0.8"
+`
+	cargoTomlPath := projectDir + "/Cargo.toml"
+	if err := os.WriteFile(cargoTomlPath, []byte(cargoToml), 0644); err != nil {
+		fmt.Println("Error writing Cargo.toml:", err)
+		return
 	}
-	`
 
-	// Path to the temporary Rust source file
-	sourceFile := "main.rs"
-	// Path to the binary output
-	binaryFile := "main"
-
-	// Write Rust code to a file
-	if err := os.WriteFile(sourceFile, []byte(rustCode), 0644); err != nil {
+	// Create the src directory and main.rs file
+	os.Mkdir(projectDir+"/src", 0755)
+	mainRsPath := projectDir + "/src/main.rs"
+	if err := os.WriteFile(mainRsPath, []byte(rustCode), 0644); err != nil {
 		fmt.Println("Error writing Rust code to file:", err)
 		return
 	}
-	defer os.Remove(sourceFile) // Clean up the file
 
-	// Compile Rust code
-	cmd := exec.Command("rustc", sourceFile, "-o", binaryFile)
+	// Compile the Rust project using Cargo
+	cmd := exec.Command("cargo", "build", "--release")
+	cmd.Dir = projectDir
 	var out, stderr strings.Builder
 	cmd.Stdout = &out
 	cmd.Stderr = &stderr
@@ -41,7 +58,8 @@ func main() {
 	}
 
 	// If compilation succeeded, run the binary and capture output
-	cmd = exec.Command("./" + binaryFile)
+	cmd = exec.Command("./target/release/rust_project")
+	cmd.Dir = projectDir
 	var result strings.Builder
 	cmd.Stdout = &result
 	cmd.Stderr = &stderr
@@ -56,4 +74,9 @@ func main() {
 	// Output from the Rust program
 	fmt.Println("Rust program output:")
 	fmt.Println(result.String())
+
+	// Clean up: Remove the rust_project directory
+	if err := os.RemoveAll(projectDir); err != nil {
+		fmt.Println("Error cleaning up the project directory:", err)
+	}
 }
