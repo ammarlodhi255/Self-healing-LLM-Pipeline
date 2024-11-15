@@ -63,33 +63,33 @@ docker run -d \
 
 
 ### Verify the Setup:
-	•	Access the web interface at http://localhost:8080.
-	•	Use the Single Prompt or Prompt List mode to interact with the application.
+- Access the web interface at http://localhost:8080.
+- Use the Single Prompt or Prompt List mode to interact with the application.
 
 
 ### Usage
 
 #### Single Prompt Mode
 
-	1.	Navigate to the Single Prompt section in the UI.
-	2.	Enter a prompt and select a model from the dropdown.
-	3.	Click Submit to start the iterative process.
-	4.	Observe:
-  	•	The generated code.
-  	•	Compiler output.
-  	•	Progress metrics such as iterations and elapsed time.
+1.	Navigate to the Single Prompt section in the UI.
+2.	Enter a prompt and select a model from the dropdown.
+3.	Click Submit to start the iterative process.
+4.	Observe:
+	- The generated code.
+	- Compiler output.
+	- Progress metrics such as iterations and elapsed time.
 
 #### Prompt List Mode
 
-	1.	Navigate to the Prompt List section in the UI.
-	2.	Upload a .txt file containing prompts, one per line.
-	3.	Select a model from the dropdown and start processing.
-	4.	The application will process each prompt sequentially and display results.
+1.	Navigate to the Prompt List section in the UI.
+2.	Upload a .txt file containing prompts, one per line.
+3.	Select a model from the dropdown and start processing.
+4.	The application will process each prompt sequentially and display results.
 
 #### Monitoring Metrics
 
-	•	Elapsed Time: Total time spent on processing.
-	•	Iterations: Number of iterations performed for the current prompt.
+- Elapsed Time: Total time spent on processing.
+- Iterations: Number of iterations performed for the current prompt.
 
 ### Technical Details
 
