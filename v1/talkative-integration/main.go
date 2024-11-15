@@ -87,6 +87,7 @@ func getOllamaResponse(prompt string) (string, error) {
 
 		// If the response is complete, break the loop
 		if chunk.Done {
+			fmt.Println("total duration:", chunk.TotalDuration)
 			break
 		}
 	}

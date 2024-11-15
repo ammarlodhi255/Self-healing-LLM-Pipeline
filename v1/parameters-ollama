@@ -1,0 +1,16 @@
+$ ollama show --parameters llama3.1
+stop                           "<|start_header_id|>"
+stop                           "<|end_header_id|>"
+stop                           "<|eot_id|>"
+
+
+$ ollama show --parameters lstep/neuraldaredevil-8b-abliterated:q8_0
+num_ctx                        8192
+num_keep                       24
+stop                           "<|start_header_id|>"
+stop                           "<|end_header_id|>"
+stop                           "<|eot_id|>"
+temperature                    0.8
+
+
+$ curl localhost:11434/api/generate -d '{"model":"llama3.1","options":{"temperature":0.7},"prompt":"why is the sky blue?"}'

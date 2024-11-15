@@ -1,0 +1,72 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+	"testing"
+)
+
+// Divide divides two numbers and returns the result.
+// Returns an error if division by zero is attempted.
+func Divide(a, b float64) (float64, error) {
+	if b == 0 {
+		return 0, errors.New("cannot divide by zero")
+	}
+	return a / b, nil
+}
+
+// Test cases for Divide function
+func TestDivide(t *testing.T) {
+	tests := []struct {
+		name     string
+		a        float64
+		b        float64
+		expected float64
+		wantErr  bool
+	}{
+		{
+			name:     "Normal division",
+			a:        10,
+			b:        2,
+			expected: 5,
+			wantErr:  false,
+		},
+		{
+			name:     "Division by zero",
+			a:        10,
+			b:        0,
+			expected: 0, // expected is not used when wantErr is true
+			wantErr:  true,
+		},
+		{
+			name:     "Division with negative numbers",
+			a:        -10,
+			b:        2,
+			expected: -5,
+			wantErr:  false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result, err := Divide(tt.a, tt.b)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("Expected error: %v, got: %v", tt.wantErr, err)
+			}
+			if !tt.wantErr && result != tt.expected {
+				t.Errorf("Expected result: %v, got: %v", tt.expected, result)
+			}
+		})
+	}
+}
+
+// main function for demonstration purposes
+func main() {
+	a, b := 10.0, 2.0
+	result, err := Divide(a, b)
+	if err != nil {
+		fmt.Println("Error:", err)
+	} else {
+		fmt.Printf("Result of %.2f / %.2f = %.2f\n", a, b, result)
+	}
+}

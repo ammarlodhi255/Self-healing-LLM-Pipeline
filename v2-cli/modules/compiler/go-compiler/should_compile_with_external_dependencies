@@ -1,0 +1,37 @@
+// These are dependencies that are **NOT** part of the standard library
+package main
+
+import (
+    "fmt"
+    "golang.org/x/net/http2"
+    "golang.org/x/crypto/bcrypt"
+    "net/http"
+)
+
+func main() {
+    // Setting up a simple HTTP/2 server
+    srv := &http.Server{
+        Addr: ":8080",
+    }
+
+    // Register a simple handler
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        // Hashing a password
+        password := "mysecretpassword"
+        hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+        if err != nil {
+            http.Error(w, "Could not hash password", http.StatusInternalServerError)
+            return
+        }
+        fmt.Fprintf(w, "Hashed Password: %s\n", hashedPassword)
+    })
+
+    // Enable HTTP/2
+    http2.ConfigureServer(srv, nil)
+
+    // Start the server
+    fmt.Println("Starting server on https://localhost:8080")
+    if err := srv.ListenAndServeTLS("server.crt", "server.key"); err != nil {
+        fmt.Println("Error starting server:", err)
+    }
+}

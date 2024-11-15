@@ -1,0 +1,13 @@
+use rand::Rng; // Import the Rng trait from the rand crate
+use colored::*; // Import colored for terminal text coloring
+
+fn main() {
+    // Create a random number generator
+    let mut rng = rand::thread_rng();
+
+    // Generate a random number between 1 and 100
+    let random_number = rng.gen_range(1..=100); // Inclusive range
+
+    // Print the random number in green
+    println!("Random number between 1 and 100: {}", random_number.to_string().green());
+}

@@ -1,0 +1,19 @@
+// These are dependencies that are part of the standard library
+package main
+
+import (
+    "fmt"
+    "math/rand"
+    "time"
+)
+
+func main() {
+    // Seed the random number generator
+    rand.Seed(time.Now().UnixNano())
+
+    // Generate a random number between 1 and 100
+    randomNum := rand.Intn(100) + 1 // rand.Intn(100) generates a number from 0 to 99
+
+    // Print the random number
+    fmt.Println("Random Number:", randomNum)
+}

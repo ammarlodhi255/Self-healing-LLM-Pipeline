@@ -1,0 +1,39 @@
+package main
+
+import (
+    "fmt"
+    "testing"
+)
+
+// Add adds two integers and returns the result.
+func Add(a, b int) int {
+    return a + b
+}
+
+// Test cases for Add function
+func TestAdd(t *testing.T) {
+    // Test case 1: Normal addition
+    result := Add(2, 3)
+    if result != 5 {
+        t.Errorf("Expected 5, got %v", result)
+    }
+
+    // Faulty Test case 2: Incorrect expected result
+    result = Add(2, 2)
+    if result != 5 { // This is faulty, it should expect 4, not 5
+        t.Errorf("Expected 5, got %v", result)
+    }
+
+    // Test case 3: Adding negative numbers
+    result = Add(-2, -3)
+    if result != -5 {
+        t.Errorf("Expected -5, got %v", result)
+    }
+}
+
+// main function for demonstration purposes
+func main() {
+    a, b := 2, 3
+    result := Add(a, b)
+    fmt.Printf("Result of %d + %d = %d\n", a, b, result)
+}
