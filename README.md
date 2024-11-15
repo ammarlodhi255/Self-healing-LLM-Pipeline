@@ -111,17 +111,33 @@ docker run -d \
 
 ```
 project-root/
-├── Dockerfile         # Containerization setup
-├── main.go            # Backend Go application
-├── static/            # Frontend assets (CSS, JS)
-│   ├── css/
-│   │   └── styles.css
-│   └── js/
-│       └── script.js
+├── Dockerfile                     # Containerization setup
+├── main.go                        # Backend Go application
+├── static/                        # Frontend assets (CSS, JS)
+├── imgs/
 ├── templates/
-│   └── index.html     # Frontend HTML template
-├── go.mod             # Go module dependencies
-└── go.sum             # Go module checksums
+│   └── index.html                 # Frontend HTML template
+├── go.mod                         # Go module dependencies
+├── go.sum                         # Go module checksums
+└── modules/                       # Core modules for LLM processing and utilities
+    ├── compiler/                  
+    ├── compiler_v2/
+    │   ├── consts/                # Constants for compiler configurations
+    │   ├── go_compiler_v2/        # Go-specific compiler logic
+    │   ├── platform/              # Cross-platform handling
+    │   ├── rust_compiler_v2/      # Rust-specific compiler logic
+    │   └── utils/                 # Utility functions for compiler operations
+    ├── database/                  
+    │   ├── db.go                  # Database logic and configuration
+    │   └── test_db.go             # Unit tests for database interactions
+    ├── display-indicator/         
+    │   └── indicator.go           # Display indicators and loading animations
+    ├── extraction/                
+    │   ├── extract.go             # Extraction logic for code from LLM response
+    │   └── extract_test.go        # Unit tests for extraction functions
+    └── ollama-implementation/     
+        ├── ollama.go              # Ollama API interaction logic
+        └── ollama_test.go         # Unit tests for Ollama API functions
 ```
 
 
