@@ -51,7 +51,7 @@ Mount your host’s Ollama directory to the container for model access:
 docker run -d \
     -p 8080:8080 \
     -p 11434:11434 \
-    -v /Users/ammarahmed/.ollama:/root/.ollama \
+    -v /Users/username/.ollama:/root/.ollama \
     --name llm-pipeline \
     llm-pipeline
 
