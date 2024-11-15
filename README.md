@@ -3,7 +3,7 @@
 **Self-Healing LLM Pipeline** uses open-source Large Language Models (LLMs), like `llama3.1`, to iteratively generate, test, and refine code. It automates the process of identifying and fixing issues in generated code through a feedback loop, minimizing the need for human intervention. This application supports integration with **Ollama** for model management and API interactions.
 
 - The LLM validates its generated main code by writing three test cases.
-- We separate the main code and test code, saving them in respective files.
+- Separates the main code and test code, saving them in respective files.
 - The main code is compiled first; if it fails, the errors are fed back to the LLM.
 - If the main code compiles, the test cases are compiled and executed, and if any error within the test file or any failed tests exists, they are returned as feedback.
 - This loop continues until the code:
