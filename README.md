@@ -1,6 +1,6 @@
 # LLM Self-Healing Pipeline
 
-**LLM Self-Healing Pipeline** is a robust application that leverages Large Language Models (LLMs), like `llama3.1`, to iteratively generate, test, and refine code. It automates the process of identifying and fixing issues in generated code through a feedback loop, minimizing the need for human intervention. This application supports integration with **Ollama** for model management and API interactions.
+**LLM Self-Healing Pipeline** uses open-source Large Language Models (LLMs), like `llama3.1`, to iteratively generate, test, and refine code. It automates the process of identifying and fixing issues in generated code through a feedback loop, minimizing the need for human intervention. This application supports integration with **Ollama** for model management and API interactions.
 
 - The LLM validates its generated main code by writing three test cases.
 - We separate the main code and test code, saving them in respective files.
