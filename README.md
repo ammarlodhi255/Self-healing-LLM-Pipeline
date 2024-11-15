@@ -95,6 +95,7 @@ docker run -d \
 
 #### Project Structure
 
+```
 project-root/
 ├── Dockerfile         # Containerization setup
 ├── main.go            # Backend Go application
@@ -107,7 +108,7 @@ project-root/
 │   └── index.html     # Frontend HTML template
 ├── go.mod             # Go module dependencies
 └── go.sum             # Go module checksums
-
+```
 
 ### Development
 
