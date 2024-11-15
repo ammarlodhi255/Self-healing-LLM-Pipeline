@@ -10,8 +10,6 @@
   - Compiles successfully
   - Passes all three test cases.
 
-![image](https://github.com/user-attachments/assets/149e4a68-0084-4a83-9b49-34284377dab5)
-
 ## Features
 
 - **Iterative Self-Healing Loop**: Automatically generates, tests, and refines code until it compiles successfully.
