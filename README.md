@@ -124,6 +124,24 @@ go run main.go
 3.	Access the application at http://localhost:8080.
 
 
+## Screenshots
+
+### Main Interface with Prompt Input and Model Selection
+
+![Main Interface with Prompt Input and Model Selection](static/imgs/img1.png)
+
+### Model Selection Dropdown
+
+![Model Selection Dropdown](static/imgs/img4.png)
+
+### Code Generation Process with Main Code and Test Code Sections
+
+![Code Generation Process with Main Code and Test Code Sections](static/imgs/img2.jpeg)
+
+### Detailed Output with Compiler Messages
+
+![Detailed Output with Compiler Messages](static/imgs/img3.png)
+
 ### License
 
 This project is licensed under the MIT License.
