@@ -136,7 +136,7 @@ go run main.go
 
 ### Code Generation Process with Main Code and Test Code Sections
 
-![Code Generation Process with Main Code and Test Code Sections](static/imgs/img2.jpeg)
+![Code Generation Process with Main Code and Test Code Sections](static/imgs/img2.png)
 
 ### Detailed Output with Compiler Messages
 
