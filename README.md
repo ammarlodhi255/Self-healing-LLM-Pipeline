@@ -38,6 +38,20 @@ git clone https://github.com/your-username/llm-self-healing-pipeline.git
 cd llm-self-healing-pipeline
 ```
 
+### Run the application locally:
+
+To run the application locally without Docker:
+1.	Install Go dependencies:
+```bash
+go mod tidy
+```
+2.	Run the application:
+```bash
+go run main.go
+```
+
+4.	Access the application at http://localhost:8080.
+   
 ### Build and Run with Docker
 
 ```bash
@@ -109,19 +123,6 @@ project-root/
 ├── go.mod             # Go module dependencies
 └── go.sum             # Go module checksums
 ```
-
-### Development
-
-To run the application locally without Docker:
-1.	Install Go dependencies:
-```bash
-go mod tidy
-```
-2.	Run the application:
-go run main.go
-
-
-3.	Access the application at http://localhost:8080.
 
 
 ## Screenshots
